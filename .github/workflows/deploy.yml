@@ -29,13 +29,11 @@ jobs:
         run: npm run build -- --configuration production --base-href /buildaq-PoliticianHub/
       
       - name: Copy CNAME to dist
-        run: |
-          mkdir -p dist/buildaq-politicianhub/browser
-          cp CNAME dist/buildaq-politicianhub/browser/CNAME
+        run: cp CNAME dist/buildaq-schools/browser/CNAME
       
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/buildaq-politicianhub/browser
+          publish_dir: ./dist/buildaq-schools/browser
           publish_branch: gh-pages
