@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
     <div class="announcements mat-typography">
       <div class="hero mat-elevation-z2">
         <div>
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Announcements</div>
         </div>
         <div class="hero-actions">

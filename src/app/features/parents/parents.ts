@@ -13,7 +13,7 @@ import { MockDataService, ParentContact } from '../../core/services/mock-data.se
     <div class="fees-page parents-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Parents & Messaging</div>
         </div>
         <span class="spacer"></span>

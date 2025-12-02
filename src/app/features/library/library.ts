@@ -13,7 +13,7 @@ import { MockDataService, LibraryItem } from '../../core/services/mock-data.serv
     <div class="library mat-typography">
       <div class="hero mat-elevation-z2">
         <div>
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Library</div>
         </div>
         <div class="hero-actions">

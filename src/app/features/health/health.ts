@@ -13,7 +13,7 @@ import { MockDataService, HealthIncident, HealthProfile } from '../../core/servi
     <div class="fees-page health-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Health & Medical</div>
         </div>
         <span class="spacer"></span>

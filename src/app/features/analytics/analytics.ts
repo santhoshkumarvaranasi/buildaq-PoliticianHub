@@ -14,7 +14,7 @@ type ChartPoint = { label: string; value: number; color?: string };
     <div class="fees-page analytics-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Visual Analytics</div>
         </div>
       </mat-toolbar>

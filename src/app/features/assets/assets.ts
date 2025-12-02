@@ -13,7 +13,7 @@ import { MockDataService, AssetItem } from '../../core/services/mock-data.servic
     <div class="fees-page assets-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Assets & Inventory</div>
         </div>
         <span class="spacer"></span>

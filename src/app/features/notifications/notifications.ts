@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
     <div class="notifications-page mat-typography">
       <div class="hero mat-elevation-z2">
         <div class="hero-text">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Notifications Center</div>
           <div class="subtitle">Stay on top of fees, attendance, behavior, and events</div>
         </div>

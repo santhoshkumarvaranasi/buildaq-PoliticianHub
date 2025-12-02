@@ -13,7 +13,7 @@ import { MockDataService, TransportRoute } from '../../core/services/mock-data.s
     <div class="transport mat-typography">
       <div class="hero mat-elevation-z2">
         <div>
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Transport</div>
         </div>
         <div class="hero-actions">

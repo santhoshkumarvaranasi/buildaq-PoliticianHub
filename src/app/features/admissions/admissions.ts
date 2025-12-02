@@ -13,7 +13,7 @@ import { MockDataService } from '../../core/services/mock-data.service';
     <div class="admissions-page">
       <div class="admissions-hero mat-elevation-z2">
         <div class="hero-text">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Admissions</div>
         </div>
         <button mat-flat-button color="accent" class="hero-action" (click)="refresh()">

@@ -13,7 +13,7 @@ import { MockDataService, ResourceItem, BookingItem } from '../../core/services/
     <div class="fees-page resources-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Resources & Bookings</div>
         </div>
         <span class="spacer"></span>

@@ -13,7 +13,7 @@ import { MockDataService, TeacherGoal, TeacherFeedback, TeacherPd } from '../../
     <div class="fees-page performance-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Staff Performance & Goals</div>
         </div>
       </mat-toolbar>

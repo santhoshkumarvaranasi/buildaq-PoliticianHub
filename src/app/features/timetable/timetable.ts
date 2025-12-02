@@ -27,7 +27,7 @@ type TimetableRow = {
     <div class="fees-page timetable-page">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Timetable</div>
         </div>
       </mat-toolbar>

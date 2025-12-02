@@ -134,8 +134,8 @@ export class TenantService {
     
     const defaultTenant: Tenant = {
       id: 'default',
-      name: 'School Management System',
-      displayName: 'BuildAQ Schools',
+      name: 'PoliticianHub System',
+      displayName: 'BuildAQ PoliticianHub',
       domain: window.location.hostname,
       status: 'active',
       adminEmail: 'admin@buildaq.com',
@@ -262,7 +262,7 @@ export class TenantService {
    * Update page title with tenant name
    */
   private updatePageTitle(tenantName: string): void {
-    document.title = `${tenantName} - School Management`;
+    document.title = `${tenantName} - PoliticianHub`;
   }
 
   /**

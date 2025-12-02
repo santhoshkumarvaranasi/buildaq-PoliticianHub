@@ -13,7 +13,7 @@ import { MockDataService, Club } from '../../core/services/mock-data.service';
     <div class="fees-page clubs-page mat-typography">
       <mat-toolbar color="primary" class="fees-toolbar mat-elevation-z2">
         <div class="toolbar-left">
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Clubs & Activities</div>
         </div>
         <span class="spacer"></span>

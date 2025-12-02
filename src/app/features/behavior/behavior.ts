@@ -20,7 +20,7 @@ interface BehaviorMetrics {
     <div class="behavior-page mat-typography">
       <div class="hero mat-elevation-z2">
         <div>
-          <div class="eyebrow">School Management</div>
+          <div class="eyebrow">PoliticianHub</div>
           <div class="title">Behavior</div>
         </div>
         <div class="hero-actions">

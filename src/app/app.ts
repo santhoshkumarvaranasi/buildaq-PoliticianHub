@@ -12,7 +12,7 @@ import { MaterialModule } from './core/material.module';
   styleUrl: './app.scss'
 })
 export class App implements OnInit {
-  protected readonly title = signal('buildaq-schools');
+  protected readonly title = signal('buildaq-politicianhub');
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
