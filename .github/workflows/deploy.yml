@@ -29,7 +29,9 @@ jobs:
         run: npm run build -- --configuration production --base-href /buildaq-PoliticianHub/
       
       - name: Copy CNAME to dist
-        run: cp CNAME dist/buildaq-politicianhub/browser/CNAME
+        run: |
+          mkdir -p dist/buildaq-politicianhub/browser
+          cp CNAME dist/buildaq-politicianhub/browser/CNAME
       
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
