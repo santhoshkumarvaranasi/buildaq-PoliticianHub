@@ -1,0 +1,252 @@
+@media (max-width: 768px) {
+  .mobile-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+  }
+  .fees-table {
+    min-width: 600px;
+  }
+}
+.export-wrap {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+@media (max-width: 768px) {
+  .export-wrap {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .export-wrap button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 768px) {
+  .toolbar-actions {
+    width: 100%;
+    justify-content: stretch;
+    margin-top: 12px;
+  }
+  .toolbar-btn-group {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .toolbar-btn-group button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.toolbar-btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .toolbar-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .toolbar-btn-group {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .toolbar-btn-group button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+.attendance-page {
+  padding: 0;
+}
+
+.action-row {
+  display: flex;
+  gap: 8px;
+}
+
+.attendance-page .mat-mdc-form-field {
+  min-width: 180px;
+}
+
+.attendance-page .status-chip {
+  text-transform: capitalize;
+}
+
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .attendance-page .summary-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .attendance-page .table-wrap {
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+  .attendance-page table {
+    min-width: 640px;
+  }
+  .attendance-page .toolbar-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .desktop-only { display: none; }
+  .mobile-only { display: grid; gap: 12px; }
+  .mobile-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    display: grid;
+    gap: 6px;
+  }
+  .mobile-card .card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .mobile-card .cell-meta {
+    color: #6b7280;
+    font-size: 12px;
+  }
+}
+
+/* Custom snack bar overlay for attendance */
+.mat-snack-bar-container.attendance-snack {
+  background: #212121 !important;
+  color: #fff !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  border-radius: 6px;
+  opacity: 0.98;
+  z-index: 99999 !important;
+  padding: 16px 24px !important;
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 32px !important;
+  transform: translateX(-50%) !important;
+  backdrop-filter: blur(2px);
+}
+
+.mat-snack-bar-container.attendance-snack .mat-simple-snackbar-action {
+  color: #ffd600 !important;
+  font-weight: 600;
+}
+
+/* Attendance toggle cell styling */
+.attendance-toggle-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 0;
+}
+
+.attendance-toggle {
+  background: #e3f2fd;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(33, 150, 243, 0.08);
+  padding: 2px 0 0 0;
+  min-width: 56px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bbdefb;
+  transition: background 0.2s, border 0.2s;
+}
+
+.attendance-toggle.present {
+  background: #e8f5e9;
+  border-color: #43a047;
+}
+.attendance-toggle.absent {
+  background: #ffebee;
+  border-color: #e53935;
+}
+.attendance-toggle .mat-icon {
+  font-size: 28px;
+  color: #43a047;
+}
+.attendance-toggle.absent .mat-icon {
+  color: #e53935;
+}
+.attendance-toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2px;
+}
+.attendance-toggle.present .attendance-toggle-label {
+  color: #43a047;
+}
+.attendance-toggle.absent .attendance-toggle-label {
+  color: #e53935;
+}
+
+/* Attendance status pill styling */
+.status-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1.5px solid #e0e7ef;
+  background: #f1f5fa;
+  min-width: 90px;
+  min-height: 38px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  box-shadow: 0 1px 4px rgba(17,38,146,0.06);
+  outline: none;
+  padding: 0 12px;
+}
+.status-pill.present {
+  background: #e8f5e9;
+  border-color: #43a047;
+  color: #43a047;
+}
+.status-pill.absent {
+  background: #ffebee;
+  border-color: #e53935;
+  color: #e53935;
+}
+.status-pill .pill-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+.status-pill .pill-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.status-pill .pill-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+.status-pill:focus {
+  box-shadow: 0 0 0 2px #90caf9;
+}
+.status-pill.tight {
+  min-width: 70px;
+  padding: 0 8px;
+}

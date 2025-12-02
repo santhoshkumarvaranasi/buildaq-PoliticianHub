@@ -1,0 +1,95 @@
+<div class="fees-page structure-page">
+  <mat-card class="table-card mat-elevation-z2 desktop-only">
+    <mat-card-title>Fee structure</mat-card-title>
+    <mat-card-subtitle>Per-class heads and amounts aligned with your finance palette.</mat-card-subtitle>
+
+    <div class="structure-header">
+      <mat-form-field appearance="fill" class="class-select">
+        <mat-label>Class</mat-label>
+        <mat-select [(ngModel)]="classId">
+          <mat-option value="1A">1A</mat-option>
+          <mat-option value="2A">2A</mat-option>
+          <mat-option value="3A">3A</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-flat-button color="accent" class="record-btn" (click)="addHead()">
+        <span class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z" fill="currentColor"/></svg>
+        </span>
+        Add head
+      </button>
+    </div>
+
+    <div class="table-wrap">
+      <table mat-table [dataSource]="structure" class="fees-table">
+        <ng-container matColumnDef="head">
+          <th mat-header-cell *matHeaderCellDef>Head</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-form-field appearance="fill" class="structure-input">
+              <mat-label>Fee head</mat-label>
+              <input matInput [(ngModel)]="row.head" />
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-form-field appearance="fill" class="structure-input compact-number">
+              <mat-label>Amount</mat-label>
+              <input matInput type="number" [(ngModel)]="row.amount" />
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="frequency">
+          <th mat-header-cell *matHeaderCellDef>Frequency</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-form-field appearance="fill" class="structure-input">
+              <mat-label>Frequency</mat-label>
+              <mat-select [(ngModel)]="row.frequency">
+                <mat-option value="Monthly">Monthly</mat-option>
+                <mat-option value="Quarterly">Quarterly</mat-option>
+                <mat-option value="Annual">Annual</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="optional">
+          <th mat-header-cell *matHeaderCellDef>Optional</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox [(ngModel)]="row.optional">Optional</mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row; let i = index">
+            <button mat-stroked-button color="warn" class="ghost-button" (click)="removeHead(i)">
+              Remove
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card>
+
+  <mat-card class="mobile-only mobile-card-list">
+    <div class="mobile-card" *ngFor="let row of structure; let i = index">
+      <div class="card-row">
+        <div class="cell-title">{{ row.head || 'Fee head' }}</div>
+        <mat-chip color="primary" selected>{{ row.frequency }}</mat-chip>
+      </div>
+      <div class="cell-strong">{{ row.amount | currency }}</div>
+      <div class="cell-meta">Optional: {{ row.optional ? 'Yes' : 'No' }}</div>
+      <div class="action-row">
+        <button mat-stroked-button color="warn" class="ghost-button" (click)="removeHead(i)">Remove</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

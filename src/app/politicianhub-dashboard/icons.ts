@@ -1,0 +1,22 @@
+export const ICONS = {
+  students: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 7a7 7 0 0 1 14 0" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  attendance: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v2m8-2v2M5 9h14M7 5h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="m9 13 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  fees: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="14" rx="2" ry="2"/><path d="M4 9h16M9 13h6" stroke-linecap="round"/></svg>`,
+  behavior: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M12 5l7 7-7 7-7-7Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9v4" stroke-linecap="round"/></svg>`,
+  timetable: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="15" rx="2" ry="2"/><path d="M8 3v4m8-4v4M4 11h16M8 15h3" stroke-linecap="round"/></svg>`,
+  analytics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19h16M7 16V9m5 7V5m5 11v-6" stroke-linecap="round"/></svg>`,
+  alertInfo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v6m0 3h.01" stroke-linecap="round"/></svg>`,
+  alertWarn: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4 3 20h18L12 4Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 10v4m0 3h.01" stroke-linecap="round"/></svg>`,
+  politicians: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><rect x="6" y="14" width="12" height="6" rx="3"/></svg>`,
+  events: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4m8-4v4M3 10h18"/></svg>`,
+  issues: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>`,
+  grievances: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4Z" stroke-linejoin="round"/><path d="M8 9h8m-8 4h5" stroke-linecap="round"/><path d="M12 5V3" stroke-linecap="round"/></svg>`,
+  database: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" stroke-linecap="round"/></svg>`,
+  works: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 21 6-6h4l5-5-4-4-5 5v4Z" stroke-linejoin="round"/><path d="M15 5 19 9" stroke-linecap="round"/></svg>`,
+  broadcast: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 9a6 6 0 0 1 0 6M3.5 6a10 10 0 0 1 0 12M12 5v14" stroke-linecap="round"/><circle cx="12" cy="16" r="2"/><path d="M12 5 8 2v3Z" stroke-linejoin="round"/></svg>`,
+  volunteers: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="6" r="3"/><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M12 9v6m-7 1.5V14l3-1.5m11 4.5V14l-3-1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  tour: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v4" stroke-linecap="round"/><path d="M7 7h10l2 4-7 10-7-10Z" stroke-linejoin="round"/><circle cx="12" cy="11" r="1.5"/></svg>`,
+  heatmap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15c4-6 6-6 10-2" stroke-linecap="round"/><circle cx="8" cy="11" r="1"/><circle cx="15" cy="13" r="1"/></svg>`,
+  appointment: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4m8-4v4M4 11h16M12 15h4" stroke-linecap="round"/></svg>`,
+  media: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9v6l5-3z" stroke-linejoin="round"/><path d="M6 9h2v6H6Z" stroke-linejoin="round"/></svg>`
+};

@@ -1,0 +1,94 @@
+@use './styles/_material-theme' as *;
+@use './styles/_compact' as *;
+@use './styles/_panels';
+@use './styles/_custom-theme';
+
+/* Improve select dropdown readability */
+.mat-icon {
+  font-family: 'Material Icons', 'Material Symbols Outlined', 'Material Symbols Rounded', 'Material Symbols Sharp', sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Global Material Select Dropdown Styling */
+.cdk-overlay-pane .mat-mdc-select-panel {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24), 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 8px !important;
+  margin-top: 8px;
+  max-height: 300px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cdk-overlay-pane .mat-mdc-option {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  min-height: 44px !important;
+  padding: 0 16px !important;
+  transition: all 0.15s ease !important;
+}
+
+.cdk-overlay-pane .mat-mdc-option:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.cdk-overlay-pane .mat-mdc-option.mdc-list-item--selected {
+  background: #e0f2fe !important;
+  color: #0c4a6e !important;
+  font-weight: 600 !important;
+}
+
+.cdk-overlay-pane .mat-mdc-option.mdc-list-item--selected:hover {
+  background: #bae6fd !important;
+  color: #0c4a6e !important;
+}
+
+.cdk-overlay-pane .mat-mdc-option:focus,
+.cdk-overlay-pane .mat-mdc-option.mat-mdc-option-active {
+  background: #dbeafe !important;
+  color: #1e3a8a !important;
+}
+
+.cdk-overlay-pane .mat-pseudo-checkbox {
+  color: #60a5fa !important;
+}
+
+.cdk-overlay-pane .mat-pseudo-checkbox-checked {
+  background: #60a5fa !important;
+  border-color: #60a5fa !important;
+}
+
+.cdk-overlay-backdrop {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Clubs desktop/mobile toggle (global safety net) */
+.clubs-page .desktop-only { display: block; }
+.clubs-page .mobile-only { display: none; }
+@media (max-width: 768px) {
+  .clubs-page .desktop-only { display: none; }
+  .clubs-page .mobile-only { display: grid; gap: 12px; }
+}
+
+.attendance-snack {
+  background: rgba(15, 23, 42, 0.92) !important;
+  color: #fff !important;
+  backdrop-filter: blur(6px);
+  border-radius: 12px !important;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.35) !important;
+  font-size: 14px;
+}
+
+.attendance-snack .mdc-snackbar__label {
+  color: #fff !important;
+}
+
+.attendance-snack .mdc-button__label {
+  color: #facc15 !important;
+  font-weight: 600;
+}
+

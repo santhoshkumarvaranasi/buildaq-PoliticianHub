@@ -1,0 +1,237 @@
+<div class="dashboard-container">
+  <section class="hero mat-elevation-z2">
+    <div class="hero-text">
+      <div class="eyebrow">BuildAQ PoliticianHub</div>
+      <h1>MLA Assistance & Constituency Command Center</h1>
+      <p class="subtitle">
+        Run grievances, constituency data, development works and communications from a single, field-ready console.
+      </p>
+      <div class="hero-highlights">
+        <div class="hero-pill" *ngFor="let item of heroHighlights">{{ item }}</div>
+      </div>
+      <div class="quick-links">
+        <button *ngFor="let link of quickLinks" mat-stroked-button color="primary" [routerLink]="getLink(link.path)">
+          {{ link.label }}
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="blob"></div>
+      <div class="hero-stats">
+        <div class="hero-chip">
+          <span class="chip-label">WhatsApp tickets today</span>
+          <span class="chip-value">64</span>
+        </div>
+        <div class="hero-chip">
+          <span class="chip-label">Active volunteers</span>
+          <span class="chip-value">412</span>
+        </div>
+        <div class="hero-chip">
+          <span class="chip-label">Booths tracked</span>
+          <span class="chip-value">246</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-band">
+    <div class="metric-card" *ngFor="let metric of keyMetrics" [ngClass]="metric.tone">
+      <div class="metric-label">{{ metric.label }}</div>
+      <div class="metric-value">{{ metric.value }}</div>
+      <div class="metric-meta">{{ metric.meta }}</div>
+    </div>
+  </section>
+
+  <section class="mvp-grid">
+    <mat-card class="mvp-card mat-elevation-z2" *ngFor="let module of mvpModules" [routerLink]="getLink(module.path)">
+      <div class="card-header">
+        <div class="icon-wrap" [ngClass]="module.tone" [innerHTML]="safeIcons[module.iconKey]"></div>
+        <div class="card-metric">{{ module.metric }}</div>
+      </div>
+      <h3>{{ module.title }}</h3>
+      <p>{{ module.summary }}</p>
+      <ul>
+        <li *ngFor="let item of module.checklist">{{ item }}</li>
+      </ul>
+      <button mat-button color="primary">Open module</button>
+    </mat-card>
+  </section>
+
+  <section class="journey mat-elevation-z1">
+    <h3>Public request journey</h3>
+    <div class="journey-steps">
+      <div class="journey-step" *ngFor="let stage of requestJourney">
+        <div class="stage-name">{{ stage.stage }}</div>
+        <div class="stage-detail">{{ stage.detail }}</div>
+        <div class="stage-eta">SLA: {{ stage.eta }}</div>
+        <ul>
+          <li *ngFor="let action of stage.actions">{{ action }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Capability pillars</h3>
+    <div class="feature-grid">
+      <mat-card class="feature-card mat-elevation-z2" *ngFor="let pillar of featurePillars">
+        <div class="card-header">
+          <div class="icon-wrap" [innerHTML]="safeIcons[pillar.iconKey]"></div>
+          <div class="card-title">{{ pillar.title }}</div>
+        </div>
+        <p>{{ pillar.summary }}</p>
+        <ul>
+          <li *ngFor="let bullet of pillar.bullets">{{ bullet }}</li>
+        </ul>
+      </mat-card>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Operational suites</h3>
+    <div class="suite-grid">
+      <mat-card class="suite-card mat-elevation-z1" *ngFor="let suite of operationalSuites">
+        <h4>{{ suite.title }}</h4>
+        <p>{{ suite.desc }}</p>
+        <ul>
+          <li *ngFor="let bullet of suite.bullets">{{ bullet }}</li>
+        </ul>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="comms-volunteer">
+    <mat-card class="comms-card mat-elevation-z1">
+      <mat-card-title>Communication & broadcast</mat-card-title>
+      <div class="comms-block" *ngFor="let comm of communicationsSuite">
+        <div class="comms-heading">
+          <div class="comms-title">{{ comm.title }}</div>
+          <span class="comms-metric">{{ comm.metric }}</span>
+        </div>
+        <ul>
+          <li *ngFor="let bullet of comm.bullets">{{ bullet }}</li>
+        </ul>
+      </div>
+    </mat-card>
+
+    <mat-card class="volunteer-card mat-elevation-z1">
+      <mat-card-title>Volunteer hierarchy</mat-card-title>
+      <div class="volunteer-row" *ngFor="let level of volunteerNetwork">
+        <div class="volunteer-level">{{ level.level }}</div>
+        <div class="volunteer-count">{{ level.count }}</div>
+        <div class="volunteer-focus">{{ level.focus }}</div>
+      </div>
+      <div class="card-separator"></div>
+      <mat-card-subtitle>Voter segmentation</mat-card-subtitle>
+      <div class="segment-row" *ngFor="let segment of voterSegments">
+        <div class="segment-label">{{ segment.label }}</div>
+        <div class="segment-count">{{ segment.count | number }}</div>
+        <div class="segment-note">{{ segment.insight }}</div>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="intel-grid">
+    <mat-card class="intel-card mat-elevation-z1">
+      <mat-card-title>Development works dashboard</mat-card-title>
+      <div class="work-row" *ngFor="let work of developmentWorks">
+        <div>
+          <div class="work-name">{{ work.name }}</div>
+          <div class="work-meta">{{ work.phase }} | {{ work.owner }}</div>
+        </div>
+        <div class="work-progress">
+          <span>{{ work.progress }}%</span>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="work.progress"></div>
+          </div>
+        </div>
+        <div class="work-budget">{{ work.budget }}<br /><small>{{ work.eta }}</small></div>
+      </div>
+    </mat-card>
+
+    <mat-card class="intel-card mat-elevation-z1" *ngIf="upcomingTours.length">
+      <mat-card-title>MLA schedule & follow-ups</mat-card-title>
+      <div class="tour-row" *ngFor="let tour of upcomingTours">
+        <div class="tour-date">{{ tour.date }}</div>
+        <div class="tour-info">
+          <div class="tour-title">{{ tour.title }}</div>
+          <div class="tour-location">{{ tour.location }}</div>
+        </div>
+        <div class="tour-follow">{{ tour.followUp }}</div>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="grievance-panel">
+    <mat-card class="grievance-card mat-elevation-z1">
+      <mat-card-title>Live grievance queue</mat-card-title>
+      <div class="grievance-row" *ngFor="let ticket of grievanceQueue">
+        <div class="ticket-id">{{ ticket.ticket }}</div>
+        <div class="ticket-main">
+          <div class="ticket-title">{{ ticket.category }}</div>
+          <div class="ticket-meta">{{ ticket.citizen }} | Ward {{ ticket.ward }} | {{ ticket.channel }}</div>
+        </div>
+        <div class="ticket-status" [ngClass]="ticket.status.replace(' ', '').toLowerCase()">{{ ticket.status }}</div>
+        <div class="ticket-priority">{{ ticket.priority }}</div>
+        <div class="ticket-sla">{{ ticket.sla }}</div>
+        <div class="ticket-time">{{ ticket.submitted }}</div>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="insight-panels">
+    <mat-card class="insight mat-elevation-z1">
+      <mat-card-title>Complaint heatmap</mat-card-title>
+      <p class="insight-value">{{ heatmapStats.redZones }} red wards | {{ heatmapStats.resolvedPercent }}% resolved</p>
+      <p>{{ heatmapStats.summary }}</p>
+    </mat-card>
+    <mat-card class="insight mat-elevation-z1">
+      <mat-card-title>WhatsApp service desk</mat-card-title>
+      <p class="insight-value">{{ whatsappStats.autoTickets }} auto tickets</p>
+      <p>{{ whatsappStats.enabledWards }} wards enabled | {{ whatsappStats.adoption }}</p>
+    </mat-card>
+    <mat-card class="insight mat-elevation-z1">
+      <mat-card-title>Knowledge graph</mat-card-title>
+      <p>{{ knowledgeGraphSummary }}</p>
+      <ul>
+        <li *ngFor="let action of nextBestActions">{{ action }}</li>
+      </ul>
+    </mat-card>
+  </section>
+
+  <section class="killer-grid">
+    <mat-card class="killer-card mat-elevation-z1">
+      <mat-card-title>Killer features</mat-card-title>
+      <div class="killer-row" *ngFor="let feature of killerFeatures">
+        <div class="killer-title">{{ feature.title }}</div>
+        <div class="killer-detail">{{ feature.detail }}</div>
+        <div class="killer-benefit">{{ feature.benefit }}</div>
+      </div>
+    </mat-card>
+    <mat-card class="ai-card mat-elevation-z1">
+      <mat-card-title>AI assistant prompts</mat-card-title>
+      <div class="prompt-row" *ngFor="let prompt of aiPrompts">
+        <div class="prompt-question">{{ prompt.prompt }}</div>
+        <div class="prompt-answer">{{ prompt.result }}</div>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="recommendations">
+    <mat-card class="recommendation-card mat-elevation-z1" *ngFor="let rec of recommendations">
+      <mat-card-title>{{ rec.title }}</mat-card-title>
+      <ul>
+        <li *ngFor="let item of rec.bullets">{{ item }}</li>
+      </ul>
+    </mat-card>
+  </section>
+
+  <section class="influencer mat-elevation-z1" *ngIf="influencerNotes.length">
+    <h3>Influencer follow-ups</h3>
+    <div class="influencer-row" *ngFor="let note of influencerNotes">
+      <div class="influencer-name">{{ note.name }}</div>
+      <div class="influencer-booth">Booth {{ note.booth }}</div>
+      <div class="influencer-focus">{{ note.focus }}</div>
+    </div>
+  </section>
+</div>
