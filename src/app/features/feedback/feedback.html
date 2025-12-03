@@ -1,0 +1,423 @@
+<div class="feedback-container">
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="eyebrow">PoliticianHub</div>
+      <h1>Feedback Management</h1>
+      <p class="subtitle">Multi-channel feedback collection and sentiment analysis</p>
+    </div>
+    <div class="header-actions">
+      <button mat-raised-button color="primary" (click)="createCampaign()">
+        <mat-icon>add</mat-icon>
+        New Campaign
+      </button>
+      <button mat-raised-button (click)="exportResponses()">
+        <mat-icon>download</mat-icon>
+        Export
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats Overview -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <mat-icon class="stat-icon" style="color: #2196f3">feedback</mat-icon>
+      <div class="stat-content">
+        <div class="stat-value">{{stats.totalResponses | number}}</div>
+        <div class="stat-label">Total Responses</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <mat-icon class="stat-icon" style="color: #4caf50">star</mat-icon>
+      <div class="stat-content">
+        <div class="stat-value">{{stats.averageRating}}</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <mat-icon class="stat-icon" style="color: #ff9800">trending_up</mat-icon>
+      <div class="stat-content">
+        <div class="stat-value">{{stats.responseRate}}%</div>
+        <div class="stat-label">Response Rate</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <mat-icon class="stat-icon" style="color: #9c27b0">campaign</mat-icon>
+      <div class="stat-content">
+        <div class="stat-value">{{stats.activeCampaigns}}</div>
+        <div class="stat-label">Active Campaigns</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <mat-tab-group [(selectedIndex)]="activeTab" class="feedback-tabs">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>dashboard</mat-icon>
+        Overview
+      </ng-template>
+      
+      <!-- Overview Content -->
+      <div class="tab-content">
+        <!-- Sentiment Distribution -->
+        <div class="section-card">
+          <h3>Sentiment Analysis</h3>
+          <div class="sentiment-grid">
+            <div class="sentiment-card positive">
+              <mat-icon>sentiment_satisfied_alt</mat-icon>
+              <div class="sentiment-percent">{{stats.positivePercent}}%</div>
+              <div class="sentiment-label">Positive</div>
+            </div>
+            <div class="sentiment-card neutral">
+              <mat-icon>sentiment_neutral</mat-icon>
+              <div class="sentiment-percent">{{stats.neutralPercent}}%</div>
+              <div class="sentiment-label">Neutral</div>
+            </div>
+            <div class="sentiment-card negative">
+              <mat-icon>sentiment_dissatisfied</mat-icon>
+              <div class="sentiment-percent">{{stats.negativePercent}}%</div>
+              <div class="sentiment-label">Negative</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Tracking -->
+        <div class="section-card">
+          <h3>Response Actions</h3>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Action Taken Rate</span>
+              <span class="progress-value">{{stats.actionTakenRate}}%</span>
+            </div>
+            <mat-progress-bar mode="determinate" [value]="stats.actionTakenRate" color="primary"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Recent Responses -->
+        <div class="section-card">
+          <h3>Recent Feedback</h3>
+          <div class="response-list">
+            @for (response of responses().slice(0, 5); track response.id) {
+              <div class="response-item">
+                <div class="response-header">
+                  <div class="response-meta">
+                    <mat-icon [style.color]="getSentimentColor(response.sentiment)">
+                      {{getChannelIcon(response.channel)}}
+                    </mat-icon>
+                    <div>
+                      <div class="response-name">{{response.respondent}}</div>
+                      <div class="response-time">{{response.timestamp | date:'short'}} • {{response.location}}</div>
+                    </div>
+                  </div>
+                  <div class="response-rating">
+                    @for (star of [1,2,3,4,5]; track star) {
+                      <mat-icon [class.filled]="star <= response.rating">star</mat-icon>
+                    }
+                  </div>
+                </div>
+                <div class="response-content">
+                  <mat-chip class="category-chip">{{response.category}}</mat-chip>
+                  <p>{{response.feedback}}</p>
+                </div>
+                <div class="response-actions">
+                  @if (response.actionTaken) {
+                    <mat-chip color="primary">Action Taken</mat-chip>
+                  } @else {
+                    <button mat-button color="primary" (click)="takeAction(response.id)">
+                      Take Action
+                    </button>
+                  }
+                  <button mat-button (click)="viewDetails(response.id)">View Details</button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>settings_input_antenna</mat-icon>
+        Channels
+      </ng-template>
+      
+      <!-- Channels Content -->
+      <div class="tab-content">
+        <div class="channels-grid">
+          @for (channel of channels(); track channel.id) {
+            <div class="channel-card" [class.inactive]="!channel.active">
+              <div class="channel-header">
+                <mat-icon class="channel-icon">{{channel.icon}}</mat-icon>
+                <div class="channel-info">
+                  <h4>{{channel.name}}</h4>
+                  <mat-chip [color]="channel.active ? 'primary' : 'warn'">
+                    {{channel.status}}
+                  </mat-chip>
+                </div>
+                <mat-slide-toggle 
+                  [checked]="channel.active" 
+                  (change)="toggleChannel(channel.id)">
+                </mat-slide-toggle>
+              </div>
+              
+              <div class="channel-stats">
+                <div class="channel-stat">
+                  <div class="stat-label">Responses</div>
+                  <div class="stat-value">{{channel.responses | number}}</div>
+                </div>
+                <div class="channel-stat">
+                  <div class="stat-label">Response Rate</div>
+                  <div class="stat-value">{{channel.responseRate}}%</div>
+                </div>
+                <div class="channel-stat">
+                  <div class="stat-label">Avg Rating</div>
+                  <div class="stat-value">{{channel.avgRating}}</div>
+                </div>
+              </div>
+
+              <mat-progress-bar 
+                mode="determinate" 
+                [value]="channel.responseRate" 
+                [color]="channel.active ? 'primary' : 'warn'">
+              </mat-progress-bar>
+            </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>campaign</mat-icon>
+        Campaigns
+      </ng-template>
+      
+      <!-- Campaigns Content -->
+      <div class="tab-content">
+        <div class="campaigns-list">
+          @for (campaign of campaigns(); track campaign.id) {
+            <div class="campaign-card">
+              <div class="campaign-header">
+                <div>
+                  <h4>{{campaign.title}}</h4>
+                  <div class="campaign-meta">
+                    <mat-chip>{{campaign.target}}</mat-chip>
+                    <mat-chip [color]="campaign.status === 'active' ? 'primary' : ''">
+                      {{campaign.status}}
+                    </mat-chip>
+                  </div>
+                </div>
+                <div class="campaign-rating">
+                  <mat-icon>star</mat-icon>
+                  <span>{{campaign.rating}}</span>
+                </div>
+              </div>
+
+              <div class="campaign-channels">
+                @for (channelType of campaign.channels; track channelType) {
+                  <mat-chip>{{channelType}}</mat-chip>
+                }
+              </div>
+
+              <div class="campaign-progress">
+                <div class="progress-header">
+                  <span>{{campaign.responded | number}} / {{campaign.sent | number}} responses</span>
+                  <span>{{(campaign.responded / campaign.sent * 100).toFixed(1)}}%</span>
+                </div>
+                <mat-progress-bar 
+                  mode="determinate" 
+                  [value]="campaign.responded / campaign.sent * 100"
+                  color="primary">
+                </mat-progress-bar>
+              </div>
+
+              <div class="campaign-dates">
+                <div>
+                  <mat-icon>event</mat-icon>
+                  <span>{{campaign.startDate | date:'mediumDate'}} - {{campaign.endDate | date:'mediumDate'}}</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>forum</mat-icon>
+        Responses
+      </ng-template>
+      
+      <!-- Responses Content -->
+      <div class="tab-content">
+        <!-- Filters -->
+        <div class="filters">
+          <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="searchQuery" placeholder="Search feedback...">
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Channel</mat-label>
+            <mat-select [(ngModel)]="selectedChannel">
+              <mat-option value="all">All Channels</mat-option>
+              @for (channel of channels(); track channel.id) {
+                <mat-option [value]="channel.name">{{channel.name}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sentiment</mat-label>
+            <mat-select [(ngModel)]="selectedSentiment">
+              <mat-option value="all">All</mat-option>
+              <mat-option value="positive">Positive</mat-option>
+              <mat-option value="neutral">Neutral</mat-option>
+              <mat-option value="negative">Negative</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Responses List -->
+        <div class="response-list">
+          @for (response of filteredResponses(); track response.id) {
+            <div class="response-item">
+              <div class="response-header">
+                <div class="response-meta">
+                  <mat-icon [style.color]="getSentimentColor(response.sentiment)">
+                    {{getChannelIcon(response.channel)}}
+                  </mat-icon>
+                  <div>
+                    <div class="response-name">{{response.respondent}}</div>
+                    <div class="response-time">
+                      {{response.channel}} • {{response.timestamp | date:'short'}} • {{response.location}}
+                    </div>
+                  </div>
+                </div>
+                <div class="response-rating">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <mat-icon [class.filled]="star <= response.rating">star</mat-icon>
+                  }
+                </div>
+              </div>
+              <div class="response-content">
+                <mat-chip class="category-chip">{{response.category}}</mat-chip>
+                <mat-chip [style.background-color]="getSentimentColor(response.sentiment)" 
+                          style="color: white">
+                  {{response.sentiment}}
+                </mat-chip>
+                <p>{{response.feedback}}</p>
+              </div>
+              <div class="response-actions">
+                @if (response.actionTaken) {
+                  <mat-chip color="primary">
+                    <mat-icon>check_circle</mat-icon>
+                    Action Taken
+                  </mat-chip>
+                } @else {
+                  <button mat-raised-button color="primary" (click)="takeAction(response.id)">
+                    <mat-icon>fact_check</mat-icon>
+                    Take Action
+                  </button>
+                }
+                <button mat-button (click)="viewDetails(response.id)">
+                  <mat-icon>visibility</mat-icon>
+                  View Details
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>analytics</mat-icon>
+        Analytics
+      </ng-template>
+      
+      <!-- Analytics Content -->
+      <div class="tab-content">
+        <div class="analytics-grid">
+          <!-- Channel Performance -->
+          <div class="section-card">
+            <h3>Channel Performance</h3>
+            <div class="chart-placeholder">
+              @for (channel of channels().slice(0, 5); track channel.id) {
+                <div class="bar-chart-item">
+                  <div class="bar-label">{{channel.name}}</div>
+                  <div class="bar-container">
+                    <div class="bar" [style.width.%]="channel.responseRate"
+                         [style.background-color]="'#2196f3'">
+                    </div>
+                    <span class="bar-value">{{channel.responseRate}}%</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Category Distribution -->
+          <div class="section-card">
+            <h3>Feedback by Category</h3>
+            <div class="category-stats">
+              <div class="category-item">
+                <span>Infrastructure</span>
+                <mat-chip>35%</mat-chip>
+              </div>
+              <div class="category-item">
+                <span>Healthcare</span>
+                <mat-chip>28%</mat-chip>
+              </div>
+              <div class="category-item">
+                <span>Education</span>
+                <mat-chip>22%</mat-chip>
+              </div>
+              <div class="category-item">
+                <span>Water Supply</span>
+                <mat-chip>15%</mat-chip>
+              </div>
+            </div>
+          </div>
+
+          <!-- Response Timeline -->
+          <div class="section-card full-width">
+            <h3>Response Trends</h3>
+            <div class="timeline-chart">
+              <div class="timeline-item">
+                <div class="timeline-date">Nov 15</div>
+                <div class="timeline-bar" style="height: 60%"></div>
+                <div class="timeline-value">450</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Nov 20</div>
+                <div class="timeline-bar" style="height: 75%"></div>
+                <div class="timeline-value">580</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Nov 25</div>
+                <div class="timeline-bar" style="height: 90%"></div>
+                <div class="timeline-value">720</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Nov 30</div>
+                <div class="timeline-bar" style="height: 85%"></div>
+                <div class="timeline-value">680</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Dec 2</div>
+                <div class="timeline-bar" style="height: 100%"></div>
+                <div class="timeline-value">850</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

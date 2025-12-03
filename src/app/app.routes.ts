@@ -8,6 +8,8 @@ import { CommunicationsComponent } from './features/communications/communication
 import { MediaComponent } from './features/media/media';
 import { EventsComponent } from './features/events/events';
 import { AnalyticsComponent } from './features/analytics/analytics';
+import { FeedbackComponent } from './features/feedback/feedback';
+import { ReportsComponent } from './features/reports/reports';
 
 export const routes: Routes = [
   { path: '', component: PoliticianHubDashboardComponent },
@@ -18,7 +20,9 @@ export const routes: Routes = [
   { path: 'volunteers', component: VolunteersComponent },
   { path: 'communications', component: CommunicationsComponent },
   { path: 'media', component: MediaComponent },
+  { path: 'feedback', component: FeedbackComponent },
   { path: 'events', component: EventsComponent },
   { path: 'analytics', component: AnalyticsComponent },
+  { path: 'reports', component: ReportsComponent },
   { path: '**', redirectTo: '' }
 ];

@@ -19,6 +19,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   exports: [
@@ -42,6 +43,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSlideToggleModule,
     MatButtonToggleModule,
     MatMenuModule,
+    MatTabsModule,
   ]
 })
 export class MaterialModule {}
