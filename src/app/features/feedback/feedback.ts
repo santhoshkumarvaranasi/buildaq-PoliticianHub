@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../core/material.module';
+import { WhatsAppRealtimeComponent } from './whatsapp-realtime.component';
 
 interface FeedbackChannel {
   id: string;
@@ -44,7 +45,7 @@ interface FeedbackResponse {
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [CommonModule, FormsModule, MaterialModule],
+  imports: [CommonModule, FormsModule, MaterialModule, WhatsAppRealtimeComponent],
   templateUrl: './feedback.html',
   styleUrls: ['./feedback.scss']
 })

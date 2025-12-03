@@ -8,6 +8,13 @@ export const environment = {
     tenantDetectionMode: 'subdomain', // 'subdomain' | 'domain' | 'path'
     tenantApiEndpoint: '/tenants'
   },
+  whatsapp: {
+    apiUrl: 'https://api.buildaq.com/api/whatsapp',
+    webhookUrl: 'https://api.buildaq.com/webhooks/whatsapp',
+    websocketUrl: 'wss://api.buildaq.com/ws/whatsapp',
+    businessPhoneId: process.env['WHATSAPP_PHONE_ID'] || '', // Set via environment variable
+    accessToken: process.env['WHATSAPP_ACCESS_TOKEN'] || '' // Set via environment variable
+  },
   auth: {
     clientId: 'schools-management-app',
     authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID', // Update with your Azure AD tenant
