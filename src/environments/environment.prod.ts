@@ -12,8 +12,8 @@ export const environment = {
     apiUrl: 'https://api.buildaq.com/api/whatsapp',
     webhookUrl: 'https://api.buildaq.com/webhooks/whatsapp',
     websocketUrl: 'wss://api.buildaq.com/ws/whatsapp',
-    businessPhoneId: process.env['WHATSAPP_PHONE_ID'] || '', // Set via environment variable
-    accessToken: process.env['WHATSAPP_ACCESS_TOKEN'] || '' // Set via environment variable
+    businessPhoneId: '', // Configure in deployment
+    accessToken: '' // Configure in deployment
   },
   auth: {
     clientId: 'schools-management-app',

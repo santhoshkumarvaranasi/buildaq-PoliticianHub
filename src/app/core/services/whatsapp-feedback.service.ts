@@ -11,6 +11,7 @@ export interface WhatsAppMessage {
   category?: string;
   sentiment?: 'positive' | 'neutral' | 'negative';
   rating?: number;
+  read?: boolean;
 }
 
 export interface WhatsAppResponse {
