@@ -240,7 +240,7 @@ export { y as a, A as b, O as c, L as d, N as e, fe as f, x as g, U as h, B as i
 @angular/platform-browser/fesm2022/_dom_renderer-chunk.mjs:
 @angular/platform-browser/fesm2022/_browser-chunk.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

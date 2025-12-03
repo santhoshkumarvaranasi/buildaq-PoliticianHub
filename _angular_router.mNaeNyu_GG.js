@@ -553,7 +553,7 @@ var tn = new re(""), ir = (() => { class t {
     deactivateEvents = new Xe;
     attachEvents = new Xe;
     detachEvents = new Xe;
-    routerOutletData = Wn(void 0, {});
+    routerOutletData = Wn();
     parentContexts = g(le);
     location = g(Qn);
     changeDetector = g(Kn);
@@ -1063,12 +1063,12 @@ var Tt = (() => { class t {
     static \u0275prov = y.\u0275\u0275defineInjectable({ token: t, factory: t.\u0275fac, providedIn: "root" });
 } return t; })(), hr = new re(""), fr = new re("");
 function Cn(t, n, e) { let r = t.get(fr), i = t.get(Vn); if (!i.startViewTransition || r.skipNextTransition)
-    return r.skipNextTransition = !1, new Promise(u => setTimeout(u)); let o, s = new Promise(u => { o = u; }), a = i.startViewTransition(() => (o(), Go(t))); a.ready.catch(u => { }); let { onViewTransitionCreated: c } = r; return c && x(t, () => c({ transition: a, from: n, to: e })), s; }
+    return r.skipNextTransition = !1, new Promise(u => setTimeout(u)); let o, s = new Promise(u => { o = u; }), a = i.startViewTransition(() => (o(), Go(t))); a.ready.catch(u => { }), a.finished.catch(u => { }); let { onViewTransitionCreated: c } = r; return c && x(t, () => c({ transition: a, from: n, to: e })), s; }
 function Go(t) { return new Promise(n => { ti({ read: () => setTimeout(n) }, { injector: t }); }); }
 var Wo = () => { }, Mt = new re(""), We = (() => { class t {
     currentNavigation = Sr(null, { equal: () => !1 });
     currentTransition = null;
-    lastSuccessfulNavigation = Sr(null, {});
+    lastSuccessfulNavigation = Sr(null);
     events = new jt;
     transitionAbortWithErrorSubject = new jt;
     configLoader = g(At);
@@ -1300,7 +1300,7 @@ var Pt = (() => { class t {
     renderer;
     el;
     locationStrategy;
-    reactiveHref = ns(null, {});
+    reactiveHref = ns(null);
     get href() { return is(this.reactiveHref); }
     set href(e) { this.reactiveHref.set(e); }
     target;
@@ -1470,7 +1470,7 @@ function Ma(t) { return t.map(n => (...e) => Ze(n).canActivate(...e)); }
 function Ea(t) { return t.map(n => (...e) => Ze(n).canActivateChild(...e)); }
 function Oa(t) { return t.map(n => (...e) => Ze(n).canDeactivate(...e)); }
 function Da(t) { return (...n) => Ze(t).resolve(...n); }
-var Na = new xs("21.0.2");
+var Na = new xs("21.0.3");
 export { W as ActivatedRoute, H as ActivatedRouteSnapshot, mt as ActivationEnd, vt as ActivationStart, bt as BaseRouteReuseStrategy, gt as ChildActivationEnd, pt as ChildActivationStart, le as ChildrenOutletContexts, mn as DefaultTitleStrategy, K as DefaultUrlSerializer, A as EventType, ut as GuardsCheckEnd, ct as GuardsCheckStart, V as NavigationCancel, E as NavigationCancellationCode, _ as NavigationEnd, Se as NavigationError, G as NavigationSkipped, Re as NavigationSkippedCode, te as NavigationStart, Ss as NoPreloading, yt as OutletContext, f as PRIMARY_OUTLET, Rs as PreloadAllModules, Qe as PreloadingStrategy, Z as ROUTER_CONFIGURATION, vr as ROUTER_INITIALIZER, tn as ROUTER_OUTLET_DATA, se as ROUTES, Ae as RedirectCommand, dt as ResolveEnd, lt as ResolveStart, ft as RouteConfigLoadEnd, ht as RouteConfigLoadStart, wn as RouteReuseStrategy, Q as Router, U as RouterEvent, Pt as RouterLink, ms as RouterLinkActive, Pt as RouterLinkWithHref, Ds as RouterModule, ir as RouterOutlet, Pn as RouterPreloader, ke as RouterState, Ie as RouterStateSnapshot, je as RoutesRecognized, Ce as Scroll, dr as TitleStrategy, Tt as UrlHandlingStrategy, J as UrlSegment, m as UrlSegmentGroup, oe as UrlSerializer, P as UrlTree, Na as VERSION, ue as convertToParamMap, rr as createUrlTreeFromSnapshot, Lr as defaultUrlMatcher, Ma as mapToCanActivate, Ea as mapToCanActivateChild, Oa as mapToCanDeactivate, Ta as mapToCanMatch, Da as mapToResolve, ws as provideRouter, bs as provideRoutes, Fn as withComponentInputBinding, Ts as withDebugTracing, $n as withDisabledInitialNavigation, jn as withEnabledBlockingInitialNavigation, Es as withHashLocation, Is as withInMemoryScrolling, Os as withNavigationErrorHandler, zn as withPreloading, Ms as withRouterConfig, qn as withViewTransitions, sr as \u0275EmptyOutletComponent, Bn as \u0275ROUTER_PROVIDERS, Ot as \u0275afterNextNavigation, yn as \u0275loadChildren, $o as \u0275provideSometimesSyncRecognize, As as \u0275withPlatformNavigation };
 /*! Bundled license information:
 
@@ -1478,7 +1478,7 @@ export { W as ActivatedRoute, H as ActivatedRouteSnapshot, mt as ActivationEnd, 
 @angular/router/fesm2022/_router_module-chunk.mjs:
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

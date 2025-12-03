@@ -197,8 +197,8 @@ var E = class {
     get parent() { return this._parent; }
     get status() { return m(this.statusReactive); }
     set status(n) { m(() => this.statusReactive.set(n)); }
-    _status = O(() => this.statusReactive(), {});
-    statusReactive = x(void 0, {});
+    _status = O(() => this.statusReactive());
+    statusReactive = x(void 0);
     get valid() { return this.status === I; }
     get invalid() { return this.status === H; }
     get pending() { return this.status == A; }
@@ -207,13 +207,13 @@ var E = class {
     errors;
     get pristine() { return m(this.pristineReactive); }
     set pristine(n) { m(() => this.pristineReactive.set(n)); }
-    _pristine = O(() => this.pristineReactive(), {});
-    pristineReactive = x(!0, {});
+    _pristine = O(() => this.pristineReactive());
+    pristineReactive = x(!0);
     get dirty() { return !this.pristine; }
     get touched() { return m(this.touchedReactive); }
     set touched(n) { m(() => this.touchedReactive.set(n)); }
-    _touched = O(() => this.touchedReactive(), {});
-    touchedReactive = x(!1, {});
+    _touched = O(() => this.touchedReactive());
+    touchedReactive = x(!1);
     get untouched() { return !this.touched; }
     _events = new _t;
     events = this._events.asObservable();
@@ -349,8 +349,8 @@ function Pt(t, n) { let e = t.indexOf(n); e > -1 && t.splice(e, 1); }
 var Rt = { provide: u, useExisting: l(() => Ke) }, N = Promise.resolve(), Ke = (() => { class t extends u {
     callSetDisabledState;
     get submitted() { return m(this.submittedReactive); }
-    _submitted = O(() => this.submittedReactive(), {});
-    submittedReactive = x(!1, {});
+    _submitted = O(() => this.submittedReactive());
+    submittedReactive = x(!1);
     _directives = new Set;
     form;
     ngSubmit = new _;
@@ -528,8 +528,8 @@ var $t = (() => { class t {
     callSetDisabledState;
     get submitted() { return m(this._submittedReactive); }
     set submitted(e) { this._submittedReactive.set(e); }
-    _submitted = O(() => this._submittedReactive(), {});
-    _submittedReactive = x(!1, {});
+    _submitted = O(() => this._submittedReactive());
+    _submittedReactive = x(!1);
     _oldForm;
     _onCollectionChange = () => this._updateDomValue();
     directives = [];
@@ -831,7 +831,7 @@ var ut = (() => { class t {
     array(e, i, r) { return super.array(e, i, r); }
     static \u0275fac = (() => { let e; return function (r) { return (e || (e = s.\u0275\u0275getInheritedFactory(t)))(r || t); }; })();
     static \u0275prov = s.\u0275\u0275defineInjectable({ token: t, factory: t.\u0275fac, providedIn: "root" });
-} return t; })(), Qn = new gt("21.0.2"), ei = (() => { class t {
+} return t; })(), Qn = new gt("21.0.3"), ei = (() => { class t {
     static withConfig(e) { return { ngModule: t, providers: [{ provide: D, useValue: e.callSetDisabledState ?? B }] }; }
     static \u0275fac = function (i) { return new (i || t); };
     static \u0275mod = s.\u0275\u0275defineNgModule({ type: t });
@@ -847,7 +847,7 @@ export { E as AbstractControl, W as AbstractControlDirective, ge as AbstractForm
 
 @angular/forms/fesm2022/forms.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

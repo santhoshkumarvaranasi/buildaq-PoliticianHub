@@ -1,4 +1,4 @@
-import { a as E, b as O, c as T, d as H, e as N, f as A, g as L, h as j, i as k, j as U, k as P, l as z, m as B, n as x, o as G } from "@nf-internal/chunk-IZWIAIDR";
+import { a as E, b as O, c as T, d as H, e as N, f as A, g as L, h as j, i as k, j as U, k as P, l as z, m as B, n as x, o as G } from "@nf-internal/chunk-OLRFX3G7";
 import "@nf-internal/chunk-4CLCTAJ7";
 import { \u0275getDOM as M, DOCUMENT as h } from "@angular/common";
 import { \u0275getDOM as xe } from "@angular/common";
@@ -127,13 +127,13 @@ function Le() { return m(u.EventReplay, ee()); }
 function je() { return m(u.IncrementalHydration, te()); }
 function ke(...t) { let i = [], e = new Set; for (let { \u0275providers: r, \u0275kind: s } of t)
     e.add(s), r.length && i.push(r); let n = e.has(u.HttpTransferCacheOptions); return ne([[], re(), e.has(u.NoHttpTransferCache) || n ? [] : b({}), i]); }
-var Ue = new oe("21.0.2");
+var Ue = new oe("21.0.3");
 export { G as BrowserModule, S as By, le as DomSanitizer, T as EVENT_MANAGER_PLUGINS, H as EventManager, E as EventManagerPlugin, y as HAMMER_GESTURE_CONFIG, R as HAMMER_LOADER, ce as HammerGestureConfig, Oe as HammerModule, u as HydrationFeatureKind, be as Meta, A as REMOVE_STYLES_ON_COMPONENT_DESTROY, De as Title, Ue as VERSION, P as bootstrapApplication, z as createApplication, Re as disableDebugTools, Ce as enableDebugTools, x as platformBrowser, ke as provideClientHydration, B as provideProtractorTestingSupport, Le as withEventReplay, Ne as withHttpTransferCacheOptions, Ae as withI18nSupport, je as withIncrementalHydration, He as withNoHttpTransferCache, j as \u0275BrowserDomAdapter, k as \u0275BrowserGetTestability, O as \u0275DomEventsPlugin, L as \u0275DomRendererFactory2, de as \u0275DomSanitizerImpl, ue as \u0275HammerGesturesPlugin, U as \u0275KeyEventsPlugin, N as \u0275SharedStylesHost, xe as \u0275getDOM };
 /*! Bundled license information:
 
 @angular/platform-browser/fesm2022/platform-browser.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

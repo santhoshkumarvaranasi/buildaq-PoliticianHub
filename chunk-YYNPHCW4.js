@@ -146,7 +146,7 @@ export { S as a, g as b, H as c, J as d, Q as e, E as f, N as g, F as h, p as i,
 @angular/core/fesm2022/_linked_signal-chunk.mjs:
 @angular/core/fesm2022/_weak_ref-chunk.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

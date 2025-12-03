@@ -1,4 +1,4 @@
-import { g as m, o as t } from "@nf-internal/chunk-IZWIAIDR";
+import { g as m, o as t } from "@nf-internal/chunk-OLRFX3G7";
 import "@nf-internal/chunk-4CLCTAJ7";
 import * as n from "@angular/core";
 import { ANIMATION_MODULE_TYPE as u, RendererFactory2 as v, inject as a, NgZone as N, \u0275performanceMarkFeature as y } from "@angular/core";
@@ -32,7 +32,7 @@ export { x as ANIMATION_MODULE_TYPE, W as BrowserAnimationsModule, C as NoopAnim
 
 @angular/platform-browser/fesm2022/animations.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

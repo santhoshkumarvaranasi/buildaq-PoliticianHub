@@ -1186,7 +1186,7 @@ export { ss as AnimationDriver, gs as NoopAnimationDriver, ds as \u0275Animation
 @angular/animations/fesm2022/_util-chunk.mjs:
 @angular/animations/fesm2022/browser.mjs:
   (**
-   * @license Angular v21.0.2
+   * @license Angular v21.0.3
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)
