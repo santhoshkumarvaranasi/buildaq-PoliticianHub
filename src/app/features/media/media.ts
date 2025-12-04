@@ -46,6 +46,51 @@ import { MaterialModule } from '../../core/material.module';
 
       <mat-card class="table-card">
         <h3 style="padding: 16px 16px 0;">Recent Content</h3>
+        
+        <!-- Mobile Card View -->
+        <div class="mobile-card-view">
+          <div class="mobile-card" *ngFor="let post of posts">
+            <div class="mobile-card-header">
+              <div class="mobile-card-title">{{ post.title }}</div>
+              <span class="mobile-card-badge" style="background: #e0f2fe; color: #0c4a6e; padding: 4px 8px; border-radius: 8px; font-size: 11px;">{{ post.type }}</span>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Description</span>
+                <span class="mobile-card-value" style="text-align: left;">{{ post.description }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Platforms</span>
+                <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                  <mat-chip *ngFor="let p of post.platforms" style="font-size: 11px;">{{ p }}</mat-chip>
+                </div>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Reach</span>
+                <span class="mobile-card-value">{{ post.reach | number }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Engagement</span>
+                <span class="mobile-card-value">{{ post.engagement | number }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Posted</span>
+                <span class="mobile-card-value">{{ post.postedDate }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Author</span>
+                <span class="mobile-card-value">{{ post.author }}</span>
+              </div>
+            </div>
+            <div class="mobile-card-actions">
+              <button mat-raised-button color="primary" style="flex: 1;">View Analytics</button>
+              <button mat-icon-button><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button><mat-icon>share</mat-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
         <table mat-table [dataSource]="posts" class="posts-table">
           <ng-container matColumnDef="content">
             <th mat-header-cell *matHeaderCellDef>Content</th>

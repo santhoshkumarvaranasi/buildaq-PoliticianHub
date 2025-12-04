@@ -43,6 +43,46 @@ interface DevelopmentWork {
       </div>
 
       <mat-card class="table-card">
+        <!-- Mobile Card View -->
+        <div class="mobile-card-view">
+          <div class="mobile-card" *ngFor="let work of works">
+            <div class="mobile-card-header">
+              <div class="mobile-card-title">{{ work.name }}</div>
+              <mat-chip style="font-size: 11px;">{{ work.phase }}</mat-chip>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Category</span>
+                <span class="mobile-card-value">{{ work.category }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Ward</span>
+                <span class="mobile-card-badge" style="background: #e0f2fe; color: #0c4a6e; padding: 4px 8px; border-radius: 8px; font-size: 11px;">{{ work.ward }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Progress</span>
+                <span class="mobile-card-value">{{ work.progress }}%</span>
+              </div>
+              <div style="margin: 8px 0;">
+                <mat-progress-bar mode="determinate" [value]="work.progress"></mat-progress-bar>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Budget</span>
+                <span class="mobile-card-value">{{ work.budget }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Target Date</span>
+                <span class="mobile-card-value">{{ work.targetDate }}</span>
+              </div>
+            </div>
+            <div class="mobile-card-actions">
+              <button mat-raised-button color="primary" style="flex: 1;">View Details</button>
+              <button mat-icon-button><mat-icon>edit</mat-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
         <table mat-table [dataSource]="works" class="works-table">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Project Name</th>

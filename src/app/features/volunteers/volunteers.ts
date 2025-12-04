@@ -41,6 +41,40 @@ import { MaterialModule } from '../../core/material.module';
       </mat-card>
 
       <mat-card class="table-card">
+        <!-- Mobile Card View -->
+        <div class="mobile-card-view">
+          <div class="mobile-card" *ngFor="let vol of volunteers">
+            <div class="mobile-card-header">
+              <div class="mobile-card-title">{{ vol.name }}</div>
+              <mat-chip style="font-size: 11px; background: #dbeafe; color: #1e40af;">{{ vol.role }}</mat-chip>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Ward</span>
+                <span class="mobile-card-badge" style="background: #e0f2fe; color: #0c4a6e; padding: 4px 8px; border-radius: 8px; font-size: 11px;">{{ vol.ward }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Tasks Completed</span>
+                <span class="mobile-card-value">{{ vol.tasks }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Rating</span>
+                <span class="mobile-card-value">⭐ {{ vol.rating }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Last Active</span>
+                <span class="mobile-card-value">{{ vol.lastActive }}</span>
+              </div>
+            </div>
+            <div class="mobile-card-actions">
+              <button mat-raised-button color="primary" style="flex: 1;">View Profile</button>
+              <button mat-icon-button><mat-icon>call</mat-icon></button>
+              <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
         <table mat-table [dataSource]="volunteers" class="volunteers-table">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>

@@ -49,8 +49,43 @@ import { MockDataService, EventItem } from '../../core/services/mock-data.servic
         </div>
       </mat-card>
 
-      <mat-card class="table-card mat-elevation-z2 desktop-only">
+      <mat-card class="table-card mat-elevation-z2">
         <mat-card-title>Events</mat-card-title>
+        
+        <!-- Mobile Card View -->
+        <div class="mobile-card-view">
+          <div class="mobile-card" *ngFor="let event of filtered">
+            <div class="mobile-card-header">
+              <div class="mobile-card-title">{{ event.title }}</div>
+              <mat-chip [ngStyle]="{'background': event.status === 'completed' ? '#dcfce7' : '#dbeafe', 'color': event.status === 'completed' ? '#166534' : '#1e40af'}" style="font-size: 11px;">
+                {{ event.status }}
+              </mat-chip>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Category</span>
+                <span class="mobile-card-value">{{ event.category || 'General' }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Date & Time</span>
+                <span class="mobile-card-value">{{ event.date }} {{ event.time || '' }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Location</span>
+                <span class="mobile-card-value">{{ event.location || '—' }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Audience</span>
+                <span class="mobile-card-value">{{ event.audience }}</span>
+              </div>
+            </div>
+            <div class="mobile-card-actions">
+              <button mat-raised-button color="primary" style="flex: 1;">View Details</button>
+              <button mat-icon-button><mat-icon>edit</mat-icon></button>
+            </div>
+          </div>
+        </div>
+
         <div class="table-wrap">
           <table mat-table [dataSource]="filtered" class="mat-elevation-z2 mat-table">
             <ng-container matColumnDef="title">

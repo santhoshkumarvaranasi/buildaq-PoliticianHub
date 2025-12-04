@@ -192,6 +192,50 @@
 
   <!-- Voters Table -->
   <mat-card class="table-card" *ngIf="viewMode === 'voters'">
+    <!-- Mobile Card View -->
+    <div class="mobile-card-view">
+      <div class="mobile-card" *ngFor="let voter of filteredVoters">
+        <div class="mobile-card-header">
+          <div class="mobile-card-title">{{ voter.name }}</div>
+          <span class="mobile-card-badge" [style.background]="'#e0f2fe'" [style.color]="'#0c4a6e'">{{ voter.ward }}</span>
+        </div>
+        <div class="mobile-card-body">
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">EPIC ID</span>
+            <span class="mobile-card-value">{{ voter.epicId }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Age / Gender</span>
+            <span class="mobile-card-value">{{ voter.age }} / {{ voter.gender }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Booth</span>
+            <span class="mobile-card-value">{{ voter.booth }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Street</span>
+            <span class="mobile-card-value">{{ voter.street }}</span>
+          </div>
+          <div class="mobile-card-row" *ngIf="voter.tags && voter.tags.length > 0">
+            <span class="mobile-card-label">Tags</span>
+            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+              <mat-chip *ngFor="let tag of voter.tags" style="font-size: 11px;">{{ tag }}</mat-chip>
+            </div>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Last Visit</span>
+            <span class="mobile-card-value">{{ voter.lastVisit || 'Never' }}</span>
+          </div>
+        </div>
+        <div class="mobile-card-actions">
+          <button mat-raised-button color="primary" style="flex: 1;">View</button>
+          <button mat-icon-button><mat-icon>call</mat-icon></button>
+          <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Table View -->
     <table mat-table [dataSource]="filteredVoters" class="voters-table">
       
       <ng-container matColumnDef="epicId">

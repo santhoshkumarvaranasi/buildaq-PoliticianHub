@@ -40,6 +40,50 @@ import { MaterialModule } from '../../core/material.module';
 
       <mat-card class="table-card">
         <h3 style="padding: 16px 16px 0;">Recent Campaigns</h3>
+        
+        <!-- Mobile Card View -->
+        <div class="mobile-card-view">
+          <div class="mobile-card" *ngFor="let camp of campaigns">
+            <div class="mobile-card-header">
+              <div class="mobile-card-title">{{ camp.title }}</div>
+              <mat-chip [ngStyle]="{'background': getStatusColor(camp.status) === 'primary' ? '#dbeafe' : getStatusColor(camp.status) === 'accent' ? '#dcfce7' : '#fef3c7', 'color': getStatusColor(camp.status) === 'primary' ? '#1e40af' : getStatusColor(camp.status) === 'accent' ? '#166534' : '#92400e'}" style="font-size: 11px;">
+                {{ camp.status }}
+              </mat-chip>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Message</span>
+                <span class="mobile-card-value" style="text-align: left;">{{ camp.message }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Channel</span>
+                <mat-chip style="font-size: 11px;">{{ camp.channel }}</mat-chip>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Audience</span>
+                <span class="mobile-card-value">{{ camp.audience }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Sent</span>
+                <span class="mobile-card-value">{{ camp.sent | number }}</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Delivered</span>
+                <span class="mobile-card-value">{{ camp.delivered }}%</span>
+              </div>
+              <div class="mobile-card-row">
+                <span class="mobile-card-label">Date</span>
+                <span class="mobile-card-value">{{ camp.date }}</span>
+              </div>
+            </div>
+            <div class="mobile-card-actions">
+              <button mat-raised-button color="primary" style="flex: 1;">View Report</button>
+              <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
         <table mat-table [dataSource]="campaigns" class="campaigns-table">
           <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef>Campaign</th>

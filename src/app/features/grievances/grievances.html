@@ -142,6 +142,60 @@
     <div class="table-header">
       <h3>Grievances List ({{ filteredGrievances.length }})</h3>
     </div>
+
+    <!-- Mobile Card View -->
+    <div class="mobile-card-view">
+      <div class="mobile-card" *ngFor="let grievance of filteredGrievances">
+        <div class="mobile-card-header">
+          <div class="mobile-card-title">{{ grievance.ticketNumber }}</div>
+          <mat-chip [ngStyle]="{'background': getStatusColor(grievance.status) === 'primary' ? '#dbeafe' : getStatusColor(grievance.status) === 'accent' ? '#fef3c7' : '#dcfce7', 'color': getStatusColor(grievance.status) === 'primary' ? '#1e40af' : getStatusColor(grievance.status) === 'accent' ? '#92400e' : '#166534'}" style="font-size: 11px;">
+            {{ grievance.status }}
+          </mat-chip>
+        </div>
+        <div class="mobile-card-body">
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Citizen</span>
+            <span class="mobile-card-value">{{ grievance.citizen }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Ward</span>
+            <span class="mobile-card-value">{{ grievance.ward }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Category</span>
+            <span class="mobile-card-value">{{ grievance.category }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Subcategory</span>
+            <span class="mobile-card-value">{{ grievance.subcategory }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Priority</span>
+            <mat-chip [ngStyle]="{'background': getPriorityColor(grievance.priority) === 'warn' ? '#fee2e2' : '#dbeafe', 'color': getPriorityColor(grievance.priority) === 'warn' ? '#991b1b' : '#1e40af'}" style="font-size: 11px;">
+              {{ grievance.priority }}
+            </mat-chip>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Channel</span>
+            <span class="mobile-card-value">{{ grievance.channel }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Date</span>
+            <span class="mobile-card-value">{{ grievance.dateReceived }}</span>
+          </div>
+          <div class="mobile-card-row">
+            <span class="mobile-card-label">Assigned</span>
+            <span class="mobile-card-value">{{ grievance.assignedTo }}</span>
+          </div>
+        </div>
+        <div class="mobile-card-actions">
+          <button mat-raised-button color="primary" style="flex: 1;">View Details</button>
+          <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Table View -->
     <table mat-table [dataSource]="filteredGrievances" class="grievances-table">
       
       <ng-container matColumnDef="select">
