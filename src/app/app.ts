@@ -1,8 +1,10 @@
-import { Component, signal, OnInit, inject } from '@angular/core';
-import { RouterOutlet, RouterModule, Router } from '@angular/router';
+import { Component, signal, OnInit, inject, ViewChild } from '@angular/core';
+import { RouterOutlet, RouterModule, Router, NavigationEnd } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 import { TenantSwitcherComponent } from './core/components/tenant-switcher/tenant-switcher';
 import { MaterialModule } from './core/material.module';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,8 @@ import { MaterialModule } from './core/material.module';
 export class App implements OnInit {
   protected readonly title = signal('buildaq-politicianhub');
   isMobile = false;
+  
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -21,6 +25,15 @@ export class App implements OnInit {
   constructor() {
     this.checkMobile();
     window.addEventListener('resize', () => this.checkMobile());
+    
+    // Close sidenav on navigation in mobile mode
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      if (this.isMobile && this.sidenav) {
+        this.sidenav.close();
+      }
+    });
   }
 
   private checkMobile() {
