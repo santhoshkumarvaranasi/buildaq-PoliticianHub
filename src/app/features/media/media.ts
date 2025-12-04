@@ -75,11 +75,7 @@ import { MaterialModule } from '../../core/material.module';
               </div>
               <div class="mobile-card-row">
                 <span class="mobile-card-label">Posted</span>
-                <span class="mobile-card-value">{{ post.postedDate }}</span>
-              </div>
-              <div class="mobile-card-row">
-                <span class="mobile-card-label">Author</span>
-                <span class="mobile-card-value">{{ post.author }}</span>
+                <span class="mobile-card-value">{{ post.date }}</span>
               </div>
             </div>
             <div class="mobile-card-actions">
