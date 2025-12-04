@@ -23,6 +23,15 @@
 	padding: 24px;
 	overflow-y: auto;
 	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+mat-sidenav-content {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 .sidebar-header {
@@ -219,8 +228,10 @@
 	}
 
 	.app-main {
-		padding: 16px;
+		padding: 12px;
 		padding-top: 60px; // Space for menu button
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.mobile-menu-toggle {
@@ -240,8 +251,10 @@
 
 @media (max-width: 480px) {
 	.app-main {
-		padding: 12px;
+		padding: 8px;
 		padding-top: 56px;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.brand-name {
