@@ -1,6 +1,6 @@
 <div class="app-shell">
 	<mat-sidenav-container class="app-sidenav-container">
-		<mat-sidenav mode="side" opened class="app-sidebar">
+		<mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" class="app-sidebar">
 			<div class="sidebar-header">
 				<div class="brand-logo">
 					<svg class="logo-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 10 12 6.16-1.26 10-6.45 10-12V7l-10-5z" fill="currentColor"/></svg>
@@ -77,6 +77,11 @@
 		</mat-sidenav>
 
 		<mat-sidenav-content>
+			@if (isMobile) {
+				<button mat-icon-button class="mobile-menu-toggle" (click)="sidenav.toggle()">
+					<mat-icon>menu</mat-icon>
+				</button>
+			}
 			<main class="app-main">
 				<router-outlet></router-outlet>
 			</main>

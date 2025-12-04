@@ -13,11 +13,19 @@ import { MaterialModule } from './core/material.module';
 })
 export class App implements OnInit {
   protected readonly title = signal('buildaq-politicianhub');
+  isMobile = false;
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  constructor() {}
+  constructor() {
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
+  }
+
+  private checkMobile() {
+    this.isMobile = window.innerWidth < 768;
+  }
 
   ngOnInit() {
     // Check for auth token from shell app

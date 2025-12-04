@@ -1,16 +1,28 @@
 /* App shell styles */
 .app-shell {
 	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.app-sidenav-container {
+	flex: 1;
+	height: 100%;
 }
 
 .app-sidebar {
 	width: 260px;
 	background: linear-gradient(180deg, #1a1f2e 0%, #0f1419 100%);
 	color: #fff;
-	min-height: 100vh;
 	padding: 0;
 	border-right: 1px solid rgba(255, 255, 255, 0.08);
 	box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-main {
+	padding: 24px;
+	overflow-y: auto;
+	height: 100%;
 }
 
 .sidebar-header {
@@ -186,19 +198,12 @@
 		flex-direction: column;
 	}
 
-	.app-sidebar {
-		width: 100%;
-		min-height: auto;
-		position: fixed;
-		top: 0;
-		left: -100%;
+	.app-sidenav-container {
 		height: 100vh;
-		z-index: 1000;
-		transition: left 0.3s ease;
+	}
 
-		&.mobile-open {
-			left: 0;
-		}
+	.app-sidebar {
+		width: 280px;
 	}
 
 	.sidebar-header {
@@ -213,47 +218,30 @@
 		padding: 0.65rem 1rem !important;
 	}
 
-	.app-content {
-		width: 100%;
+	.app-main {
 		padding: 16px;
+		padding-top: 60px; // Space for menu button
 	}
 
 	.mobile-menu-toggle {
 		position: fixed;
-		top: 16px;
-		left: 16px;
-		z-index: 999;
+		top: 8px;
+		left: 8px;
+		z-index: 1001;
 		background: white;
-		border: none;
-		border-radius: 8px;
-		padding: 10px;
+		border-radius: 50%;
 		box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-		cursor: pointer;
 		
 		mat-icon {
 			color: #1a1f2e;
 		}
 	}
-
-	.mobile-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 999;
-		display: none;
-
-		&.active {
-			display: block;
-		}
-	}
 }
 
 @media (max-width: 480px) {
-	.app-content {
+	.app-main {
 		padding: 12px;
+		padding-top: 56px;
 	}
 
 	.brand-name {
@@ -267,6 +255,10 @@
 	.nav-item {
 		font-size: 14px;
 		padding: 0.6rem 0.875rem !important;
+	}
+
+	.app-sidebar {
+		width: 260px;
 	}
 }
 
