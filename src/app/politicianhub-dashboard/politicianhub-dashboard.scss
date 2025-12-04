@@ -383,8 +383,87 @@
 }
 
 @media (max-width: 768px) {
-  .hero { flex-direction: column; }
+  .dashboard-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .hero { 
+    flex-direction: column;
+    padding: 20px;
+
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  .hero-highlights {
+    gap: 16px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .grievance-row { grid-template-columns: 1fr; }
   .work-row, .tour-row { grid-template-columns: 1fr; }
   .volunteer-row, .segment-row { grid-template-columns: 1fr; }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-header h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 8px;
+  }
+
+  .hero {
+    padding: 16px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .metric-card {
+    padding: 16px;
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .action-button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
 }

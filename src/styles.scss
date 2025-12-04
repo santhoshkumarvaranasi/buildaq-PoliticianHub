@@ -92,3 +92,80 @@
   font-weight: 600;
 }
 
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Make buttons more touch-friendly */
+  .mat-mdc-button,
+  .mat-mdc-raised-button,
+  .mat-mdc-icon-button {
+    min-height: 44px !important;
+  }
+
+  /* Improve form field spacing on mobile */
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  /* Better spacing for cards */
+  .mat-mdc-card {
+    margin-bottom: 12px;
+  }
+
+  /* Make tables scrollable */
+  .mat-mdc-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Improve dialog sizing on mobile */
+  .mat-mdc-dialog-container {
+    max-width: 95vw !important;
+    margin: 16px;
+  }
+
+  /* Better menu panels on mobile */
+  .cdk-overlay-pane .mat-mdc-select-panel {
+    max-height: 50vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  /* Smaller padding for mobile */
+  .mat-mdc-card-content {
+    padding: 12px !important;
+  }
+
+  /* Stack action buttons vertically */
+  .mat-mdc-card-actions {
+    flex-direction: column;
+    align-items: stretch !important;
+
+    .mat-mdc-button {
+      width: 100%;
+      margin: 4px 0 !important;
+    }
+  }
+
+  /* Improve tab sizing */
+  .mat-mdc-tab-label {
+    min-width: 80px !important;
+    padding: 0 8px !important;
+    font-size: 13px !important;
+  }
+
+  /* Better chip sizing */
+  .mat-mdc-chip {
+    font-size: 12px !important;
+    min-height: 28px !important;
+  }
+}
+

@@ -186,6 +186,13 @@ import { Subscription } from 'rxjs';
       background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
       color: white;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+      }
+
       .header-left {
         display: flex;
         align-items: center;
@@ -201,6 +208,10 @@ import { Subscription } from 'rxjs';
           margin: 0;
           font-size: 20px;
           font-weight: 600;
+
+          @media (max-width: 768px) {
+            font-size: 18px;
+          }
         }
 
         .status {
@@ -240,6 +251,14 @@ import { Subscription } from 'rxjs';
       gap: 1px;
       background: #f0f0f0;
       border-bottom: 1px solid #e0e0e0;
+
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
 
       .stat {
         display: flex;
@@ -363,6 +382,11 @@ import { Subscription } from 'rxjs';
             align-items: flex-start;
             margin-bottom: 12px;
 
+            @media (max-width: 480px) {
+              flex-direction: column;
+              gap: 8px;
+            }
+
             .sender-info {
               display: flex;
               gap: 12px;
@@ -451,6 +475,16 @@ import { Subscription } from 'rxjs';
             gap: 8px;
             padding-top: 8px;
             border-top: 1px solid #e0e0e0;
+
+            @media (max-width: 480px) {
+              flex-direction: column;
+              gap: 4px;
+
+              button {
+                width: 100%;
+                justify-content: center;
+              }
+            }
 
             button {
               font-size: 13px;
