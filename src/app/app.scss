@@ -201,6 +201,45 @@ mat-sidenav-content {
 	background: rgba(255, 255, 255, 0.3);
 }
 
+/* Tablet Responsive Styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+	.app-sidebar {
+		width: 240px;
+	}
+
+	.app-main {
+		padding: 20px;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		overflow-x: hidden;
+	}
+
+	mat-sidenav-content {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+
+	.sidebar-header {
+		padding: 1.25rem 1rem;
+	}
+
+	.nav-item {
+		padding: 0.7rem 1.1rem !important;
+		font-size: 14px;
+	}
+
+	.brand-name {
+		font-size: 17px;
+	}
+
+	.nav-icon {
+		width: 20px;
+		height: 20px;
+	}
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
 	.app-shell {

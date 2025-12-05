@@ -92,6 +92,67 @@
   font-weight: 600;
 }
 
+/* Tablet Optimizations */
+@media (max-width: 1024px) and (min-width: 769px) {
+  body {
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-card {
+    margin-bottom: 16px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Tables remain visible on tablet */
+  .mat-mdc-table {
+    font-size: 13px;
+  }
+
+  .mat-mdc-table .mat-mdc-header-cell,
+  .mat-mdc-table .mat-mdc-cell {
+    padding: 12px 8px !important;
+  }
+
+  /* Ensure proper container widths */
+  .page-container,
+  .app-main {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Table containers on tablet */
+  .mat-mdc-table-container,
+  .table-container,
+  .table-wrapper,
+  .table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mat-mdc-table {
+    width: 100% !important;
+  }
+
+  /* Stats grids adapt to tablet */
+  .stats-grid,
+  .metrics {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+  }
+}
+
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   body {
@@ -216,13 +277,13 @@
     padding: 0 !important;
   }
 
-  /* Hide tables on mobile, show mobile cards instead */
+  /* Hide tables on mobile only, show mobile cards instead */
   .mat-mdc-table,
   table[mat-table] {
     display: none !important;
   }
 
-  /* Show mobile card view */
+  /* Show mobile card view on mobile only */
   .mobile-card-view {
     display: block !important;
   }
@@ -293,10 +354,16 @@
   }
 }
 
-/* Hide mobile cards on desktop */
+/* Hide mobile cards on tablet and desktop */
 @media (min-width: 769px) {
   .mobile-card-view {
     display: none !important;
+  }
+
+  /* Ensure tables are visible on tablet and desktop */
+  .mat-mdc-table,
+  table[mat-table] {
+    display: table !important;
   }
 }
 

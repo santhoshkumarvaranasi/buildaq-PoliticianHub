@@ -26,7 +26,7 @@ export class App implements OnInit {
     this.checkMobile();
     window.addEventListener('resize', () => this.checkMobile());
     
-    // Close sidenav on navigation in mobile mode
+    // Close sidenav on navigation in mobile mode (not tablet)
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -37,7 +37,8 @@ export class App implements OnInit {
   }
 
   private checkMobile() {
-    this.isMobile = window.innerWidth < 768;
+    // Only consider mobile if width is less than 768px (tablets show desktop layout)
+    this.isMobile = window.innerWidth <= 768;
   }
 
   ngOnInit() {
